@@ -1,0 +1,126 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "more": "More",
+    "education": "Education",
+    "skills": "Skills",
+    "certificates": "Certifications & Awards",
+    "contact": "Contact"
+  },
+  
+  "hero": {
+    "status": "Open to Work",
+    "domicile": "Malang, East Java, Indonesia"
+  },
+  "about": {
+    "eyebrow": "// about",
+    "heading": "Hi, I'm Zaidan Akmal Mauludi",
+    "bio": "An Informatics Engineering Education student at Universitas Negeri Malang, currently finishing my thesis by building StuDev — a gamification-based learning platform for the Basic Programming course. My focus is full-stack web development, from designing motivating learning flows to writing clean code underneath.",
+    "tags": ["Informatics Engineering Education", "Universitas Negeri Malang", "Full-Stack Developer"],
+    "downloadCv": "Download CV",
+    "education": {
+      "eyebrow": "// education",
+      "university": "Universitas Negeri Malang (UM)",
+      "major": "Informatics Engineering Education (B.Ed.)",
+      "gpa": "GPA: 3.8x / 4.00",
+      "coursesLabel": "Relevant coursework",
+      "courses": [
+        "Databases",
+        "Web Programming",
+        "Data Structures & Algorithms",
+        "Software Engineering",
+        "Computer Networks",
+        "Artificial Intelligence"
+      ]
+    },
+    "techstack": {
+      "eyebrow": "// tech stack",
+      "heading": "Tools & Technologies",
+      "tabs": {
+        "all": "All",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "framework": "Framework",
+        "tools": "Tools"
+      },
+      "items": [
+        { "name": "JavaScript", "category": ["frontend", "backend"] },
+        { "name": "TypeScript", "category": ["frontend", "backend"] },
+        { "name": "PHP", "category": ["backend"] },
+        { "name": "Python", "category": ["backend"] },
+        { "name": "SQL", "category": ["backend"] },
+        { "name": "React", "category": ["frontend", "framework"] },
+        { "name": "Tailwind CSS", "category": ["frontend", "framework"] },
+        { "name": "Laravel", "category": ["backend", "framework"] },
+        { "name": "Node.js", "category": ["backend", "framework"] },
+        { "name": "MySQL", "category": ["tools"] },
+        { "name": "PostgreSQL", "category": ["tools"] },
+        { "name": "Git", "category": ["tools"] },
+        { "name": "Figma", "category": ["tools"] },
+        { "name": "Docker", "category": ["tools"] }
+      ]
+    },
+    "personal": {
+      "softSkillsLabel": "Soft Skills",
+      "softSkills": ["Problem Solving", "Communication", "Teamwork", "Time Management", "Adaptability"],
+      "hardSkillsLabel": "Hard Skills",
+      "hardSkills": ["Full-Stack Web Development", "Database Design", "UI/UX Design", "Data Analysis"],
+      "languagesLabel": "Languages",
+      "languages": [
+        { "name": "Indonesian", "level": "Native" },
+        { "name": "English", "level": "Professional" }
+      ]
+    }
+  },
+  "experience": {
+    "eyebrow": "// experience",
+    "heading": "Journey",
+    "viewDocs": "View documentation",
+    "closeDocs": "Close documentation",
+    "items": [
+      { "id": "skripsi", "title": "Thesis", "subtitle": "StuDev — Gamification-based Learning Platform", "period": "2026 - present" },
+      { "id": "pi", "title": "Industrial Internship", "subtitle": "PT Pindad (Persero)", "period": "2025" },
+      { "id": "am", "title": "Teaching Assistantship", "subtitle": "SMKN 2 Singosari", "period": "2024" },
+      { "id": "kkn", "title": "Community Service (KKN)", "subtitle": "Bangeran Village, Mojokerto", "period": "2024" },
+      { "id": "akademik", "title": "Academic", "subtitle": "Informatics Engineering Education, Universitas Negeri Malang", "period": "2022 - present" }
+    ]
+  },
+  "projects": {
+    "eyebrow": "// projects",
+    "heading": "Projects",
+    "viewDetail": "View Detail",
+    "seeMore": "See More",
+    "seeLess": "Show Less",
+    "items": [
+      { "id": 1, "title": "StuDev", "desc": "A gamification platform for the Basic Programming course.", "tags": ["React", "Laravel"] },
+      { "id": 2, "title": "Project 2", "desc": "Short project description.", "tags": ["TypeScript"] },
+      { "id": 3, "title": "Project 3", "desc": "Short project description.", "tags": ["Python"] },
+      { "id": 4, "title": "Project 4", "desc": "Short project description.", "tags": ["Node.js"] },
+      { "id": 5, "title": "Project 5", "desc": "Short project description.", "tags": ["MySQL"] }
+    ]
+  },
+  "certificates": {
+    "eyebrow": "// certifications & awards",
+    "heading": "Certifications & Awards",
+    "viewDetail": "View Detail",
+    "seeMore": "See All",
+    "seeLess": "Show Less",
+    "close": "Close",
+    "items": [
+      { "id": 1, "title": "Certificate 1", "issuer": "Issuer", "year": "2025" },
+      { "id": 2, "title": "Certificate 2", "issuer": "Issuer", "year": "2025" },
+      { "id": 3, "title": "Certificate 3", "issuer": "Issuer", "year": "2024" },
+      { "id": 4, "title": "Certificate 4", "issuer": "Issuer", "year": "2024" }
+    ]
+  },
+  "footer": {
+    "eyebrow": "// contact",
+    "heading": "Let's connect",
+    "subtext": "Open to job opportunities, collaboration, or just a chat.",
+    "email": "email@example.com",
+    "socials": { "github": "GitHub", "linkedin": "LinkedIn", "instagram": "Instagram" },
+    "rights": "All rights reserved."
+  }
+}

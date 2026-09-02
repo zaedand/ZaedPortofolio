@@ -1,0 +1,125 @@
+{
+  "nav": {
+    "about": "Tentang",
+    "experience": "Pengalaman",
+    "projects": "Proyek",
+    "more": "Lainnya",
+    "education": "Pendidikan",
+    "skills": "Keahlian",
+    "certificates": "Sertifikat & Penghargaan",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "status": "Terbuka untuk Kerja",
+    "domicile": "Malang, Jawa Timur, Indonesia"
+  },
+  "about": {
+    "eyebrow": "// tentang",
+    "heading": "Halo, saya Zaidan Akmal Mauludi",
+    "bio": "Mahasiswa Pendidikan Teknik Informatika di Universitas Negeri Malang, saat ini menyelesaikan skripsi dengan membangun StuDev — platform pembelajaran berbasis gamifikasi untuk mata kuliah Dasar Pemrograman. Fokus saya ada di pengembangan web full-stack, dari merancang alur belajar yang memotivasi hingga menulis kode yang rapi di baliknya.",
+    "tags": ["Pendidikan Teknik Informatika", "Universitas Negeri Malang", "Full-Stack Developer"],
+    "downloadCv": "Unduh CV",
+    "education": {
+      "eyebrow": "// pendidikan",
+      "university": "Universitas Negeri Malang (UM)",
+      "major": "Pendidikan Teknik Informatika (S1)",
+      "gpa": "IPK: 3.8x / 4.00",
+      "coursesLabel": "Mata kuliah relevan",
+      "courses": [
+        "Basis Data",
+        "Pemrograman Web",
+        "Struktur Data & Algoritma",
+        "Rekayasa Perangkat Lunak",
+        "Jaringan Komputer",
+        "Kecerdasan Buatan"
+      ]
+    },
+    "techstack": {
+      "eyebrow": "// tumpukan teknologi",
+      "heading": "Tools & Teknologi",
+      "tabs": {
+        "all": "Semua",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "framework": "Framework",
+        "tools": "Tools"
+      },
+      "items": [
+        { "name": "JavaScript", "category": ["frontend", "backend"] },
+        { "name": "TypeScript", "category": ["frontend", "backend"] },
+        { "name": "PHP", "category": ["backend"] },
+        { "name": "Python", "category": ["backend"] },
+        { "name": "SQL", "category": ["backend"] },
+        { "name": "React", "category": ["frontend", "framework"] },
+        { "name": "Tailwind CSS", "category": ["frontend", "framework"] },
+        { "name": "Laravel", "category": ["backend", "framework"] },
+        { "name": "Node.js", "category": ["backend", "framework"] },
+        { "name": "MySQL", "category": ["tools"] },
+        { "name": "PostgreSQL", "category": ["tools"] },
+        { "name": "Git", "category": ["tools"] },
+        { "name": "Figma", "category": ["tools"] },
+        { "name": "Docker", "category": ["tools"] }
+      ]
+    },
+    "personal": {
+      "softSkillsLabel": "Soft Skills",
+      "softSkills": ["Pemecahan Masalah", "Komunikasi", "Kerja Tim", "Manajemen Waktu", "Adaptif"],
+      "hardSkillsLabel": "Hard Skills",
+      "hardSkills": ["Pengembangan Web Full-Stack", "Desain Basis Data", "Desain UI/UX", "Analisis Data"],
+      "languagesLabel": "Bahasa",
+      "languages": [
+        { "name": "Bahasa Indonesia", "level": "Native" },
+        { "name": "Bahasa Inggris", "level": "Profesional" }
+      ]
+    }
+  },
+  "experience": {
+    "eyebrow": "// pengalaman",
+    "heading": "Perjalanan",
+    "viewDocs": "Lihat dokumentasi",
+    "closeDocs": "Tutup dokumentasi",
+    "items": [
+      { "id": "skripsi", "title": "Skripsi", "subtitle": "StuDev — Platform Gamifikasi Pemrograman Dasar", "period": "2026 - sekarang" },
+      { "id": "pi", "title": "PI (Praktik Industri)", "subtitle": "PT Pindad (Persero)", "period": "2025" },
+      { "id": "am", "title": "AM (Asistensi Mengajar)", "subtitle": "SMKN 2 Singosari", "period": "2024" },
+      { "id": "kkn", "title": "KKN", "subtitle": "Desa Bangeran, Mojokerto", "period": "2024" },
+      { "id": "akademik", "title": "Akademik", "subtitle": "Pendidikan Teknik Informatika, Universitas Negeri Malang", "period": "2022 - sekarang" }
+    ]
+  },
+  "projects": {
+    "eyebrow": "// proyek",
+    "heading": "Proyek",
+    "viewDetail": "Lihat Detail",
+    "seeMore": "Lihat Selengkapnya",
+    "seeLess": "Tampilkan Lebih Sedikit",
+    "items": [
+      { "id": 1, "title": "StuDev", "desc": "Platform gamifikasi untuk mata kuliah Pemrograman Dasar.", "tags": ["React", "Laravel"] },
+      { "id": 2, "title": "Project 2", "desc": "Deskripsi singkat project.", "tags": ["TypeScript"] },
+      { "id": 3, "title": "Project 3", "desc": "Deskripsi singkat project.", "tags": ["Python"] },
+      { "id": 4, "title": "Project 4", "desc": "Deskripsi singkat project.", "tags": ["Node.js"] },
+      { "id": 5, "title": "Project 5", "desc": "Deskripsi singkat project.", "tags": ["MySQL"] }
+    ]
+  },
+  "certificates": {
+    "eyebrow": "// sertifikat & penghargaan",
+    "heading": "Sertifikat & Penghargaan",
+    "viewDetail": "Lihat Detail",
+    "seeMore": "Lihat Semua",
+    "seeLess": "Tampilkan Lebih Sedikit",
+    "close": "Tutup",
+    "items": [
+      { "id": 1, "title": "Sertifikat 1", "issuer": "Penerbit", "year": "2025" },
+      { "id": 2, "title": "Sertifikat 2", "issuer": "Penerbit", "year": "2025" },
+      { "id": 3, "title": "Sertifikat 3", "issuer": "Penerbit", "year": "2024" },
+      { "id": 4, "title": "Sertifikat 4", "issuer": "Penerbit", "year": "2024" }
+    ]
+  },
+  "footer": {
+    "eyebrow": "// kontak",
+    "heading": "Mari terhubung",
+    "subtext": "Terbuka untuk peluang kerja, kolaborasi, atau sekadar diskusi.",
+    "email": "email@contoh.com",
+    "socials": { "github": "GitHub", "linkedin": "LinkedIn", "instagram": "Instagram" },
+    "rights": "Seluruh hak cipta dilindungi."
+  }
+}
