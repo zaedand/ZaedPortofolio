@@ -1,9 +1,12 @@
 import { Suspense, lazy } from 'react';
+import { ThreeCircles } from 'react-loader-spinner';
 
 const Lanyard = lazy(() => import('./Lanyard'));
 
 const LanyardSkeleton = () => (
-  <div className="h-full w-full animate-pulse rounded-xl bg-gradient-to-br from-[#1a1d24] to-[#0B0D10]" />
+  <div className="flex h-full w-full items-center justify-center">
+    <ThreeCircles visible={true} height="70" width="70" color="#3B82F6" ariaLabel="loading-lanyard" />
+  </div>
 );
 
 interface LanyardCardProps {
@@ -19,7 +22,7 @@ const LanyardCard: React.FC<LanyardCardProps> = ({ photoSrc, backPhotoSrc }) => 
           frontImage={photoSrc}
           backImage={backPhotoSrc}
           gravity={[0, -40, 0]}
-          fov={10}
+          fov={9}
         />
       </Suspense>
     </div>

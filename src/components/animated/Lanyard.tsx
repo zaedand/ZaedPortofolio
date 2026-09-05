@@ -17,7 +17,7 @@ import * as THREE from 'three';
 
 // replace with your own imports, see the usage snippet for details
 import cardGLB from './card.glb';
-import lanyard from './lanyard.jpeg';
+import lanyard from './Lanyard.png';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
@@ -245,15 +245,6 @@ function Band({
     [0, 0, 0],
     [0, 1.45, 0]
   ]);
-
-  useEffect(() => {
-    if (hovered) {
-      document.body.style.cursor = dragged ? 'grabbing' : 'grab';
-      return () => {
-        document.body.style.cursor = 'auto';
-      };
-    }
-  }, [hovered, dragged]);
 
   useFrame((state, delta) => {
     if (dragged && typeof dragged !== 'boolean') {

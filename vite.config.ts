@@ -11,10 +11,17 @@ export default defineConfig({
     babel({ presets: [reactCompilerPreset()] }),
     tailwindcss(),
   ],
+
+  server: {
+    host: true,
+    port: 5173,
+  },
+
   assetsInclude: ['**/*.glb', '**/*.gltf'],
+
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      '@': path.resolve(__dirname, './src'),
     },
   },
 })

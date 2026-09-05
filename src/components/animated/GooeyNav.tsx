@@ -16,6 +16,7 @@ export interface GooeyNavProps {
   timeVariance?: number;
   colors?: number[];
   initialActiveIndex?: number;
+  onNavigate?: (href: string) => void;
 }
 
 const GooeyNav: React.FC<GooeyNavProps> = ({
@@ -26,7 +27,8 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
   particleR = 100,
   timeVariance = 300,
   colors = [1, 2, 3, 1, 2, 3, 1, 4],
-  initialActiveIndex = -1
+  initialActiveIndex = -1,
+  onNavigate
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLUListElement>(null);
@@ -106,7 +108,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
     textRef.current.replaceChildren(clone);
   };
 
-  const handleClick = (e: React.SyntheticEvent<HTMLElement>, index: number) => {
+  const handleClick = (_e: React.SyntheticEvent<HTMLElement>, index: number) => {
     const liEl = navRef.current?.querySelectorAll(':scope > li')[index] as HTMLElement | undefined;
     if (!liEl) return;
     if (activeIndex !== index) {
@@ -151,21 +153,21 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
   }, []);
 
   useEffect(() => {
-  if (!navRef.current || !containerRef.current || activeIndex === -1) return;
-  const activeLi = navRef.current.querySelectorAll(':scope > li')[activeIndex] as HTMLElement;
-  if (activeLi) {
-    updateEffectPosition(activeLi);
-    textRef.current?.classList.add('active');
-  }
-  const resizeObserver = new ResizeObserver(() => {
-    const currentActiveLi = navRef.current?.querySelectorAll(':scope > li')[activeIndex] as HTMLElement;
-    if (currentActiveLi) {
-      updateEffectPosition(currentActiveLi);
+    if (!navRef.current || !containerRef.current || activeIndex === -1) return;
+    const activeLi = navRef.current.querySelectorAll(':scope > li')[activeIndex] as HTMLElement;
+    if (activeLi) {
+      updateEffectPosition(activeLi);
+      textRef.current?.classList.add('active');
     }
-  });
-  resizeObserver.observe(containerRef.current);
-  return () => resizeObserver.disconnect();
-}, [activeIndex]);
+    const resizeObserver = new ResizeObserver(() => {
+      const currentActiveLi = navRef.current?.querySelectorAll(':scope > li')[activeIndex] as HTMLElement;
+      if (currentActiveLi) {
+        updateEffectPosition(currentActiveLi);
+      }
+    });
+    resizeObserver.observe(containerRef.current);
+    return () => resizeObserver.disconnect();
+  }, [activeIndex]);
 
   return (
     <>
@@ -173,6 +175,14 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
         {`
           :root {
             --linear-ease: linear(0, 0.068, 0.19 2.7%, 0.804 8.1%, 1.037, 1.199 13.2%, 1.245, 1.27 15.8%, 1.274, 1.272 17.4%, 1.249 19.1%, 0.996 28%, 0.949, 0.928 33.3%, 0.926, 0.933 36.8%, 1.001 45.6%, 1.013, 1.019 50.8%, 1.018 54.4%, 1 63.1%, 0.995 68%, 1.001 85%, 1);
+            --nav-idle-text: #000;
+            --nav-pill-bg: #000;
+            --nav-pill-text: #fff;
+          }
+          .dark {
+            --nav-idle-text: #fff;
+            --nav-pill-bg: #fff;
+            --nav-pill-text: #000;
           }
           .effect {
             position: absolute;
@@ -183,12 +193,12 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             z-index: 1;
           }
           .effect.text {
-            color: white;
+            color: var(--nav-idle-text);
             transition: color 0.3s ease;
             place-items: stretch;
           }
           .effect.text.active {
-            color: black;
+            color: var(--nav-pill-text);
           }
           .effect.filter {
             filter: blur(7px) contrast(100) blur(0);
@@ -205,7 +215,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             content: "";
             position: absolute;
             inset: 0;
-            background: white;
+            background: var(--nav-pill-bg);
             transform: scale(0);
             opacity: 0;
             z-index: -1;
@@ -288,7 +298,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             }
           }
           li.active {
-            color: black;
+            color: var(--nav-pill-text);
             text-shadow: none;
           }
           li.active::after {
@@ -300,7 +310,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             position: absolute;
             inset: 0;
             border-radius: 8px;
-            background: white;
+            background: var(--nav-pill-bg);
             opacity: 0;
             transform: scale(0);
             transition: all 0.3s ease;
@@ -312,8 +322,8 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
         <nav className="flex relative" style={{ transform: 'translate3d(0,0,0.01px)' }}>
           <ul
             ref={navRef}
-            className="flex gap-8 list-none p-0 px-4 m-0 relative z-[3]"
-            style={{ color: 'white', textShadow: '0 1px 1px hsl(205deg 30% 10% / 0.2)' }}
+            className="flex gap-8 list-none p-0 px-4 m-0 relative z-3"
+            style={{ color: 'var(--nav-idle-text)' }}
           >
             {items.map((item, index) => {
               const hasChildren = !!item.children?.length;
@@ -321,7 +331,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
               return (
                 <li
                   key={index}
-                  className={`rounded-full relative cursor-pointer transition-[background-color_color_box-shadow] duration-300 ease shadow-[0_0_0.5px_1.5px_transparent] text-white ${
+                  className={`rounded-full relative cursor-pointer transition-[background-color_color_box-shadow] duration-300 ease shadow-[0_0_0.5px_1.5px_transparent] ${
                     activeIndex === index ? 'active' : ''
                   }`}
                 >
@@ -344,7 +354,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
                         <GlitchText
                           enableOnHover
                           speed={0.3}
-                          className="!mx-0 !inline-block !cursor-pointer !text-[0.95rem] !font-medium !text-[color:inherit]"
+                          className="mx-0! inline-block! cursor-pointer! text-[0.95rem]! font-medium! text-inherit!"
                         >
                           {item.label}
                         </GlitchText>
@@ -357,7 +367,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
                       </button>
 
                       {openIndex === index && (
-                        <ul className="absolute left-1/2 top-full mt-3 -translate-x-1/2 min-w-[210px] rounded-2xl bg-black/80 backdrop-blur-md py-2 z-[4] shadow-lg">
+                        <ul className="absolute left-1/2 top-full mt-3 -translate-x-1/2 min-w-52.5 rounded-2xl bg-white/90 dark:bg-black/80 backdrop-blur-md py-2 z-4 shadow-lg border border-black/10 dark:border-white/10">
                           {item.children!.map((child, childIndex) => (
                             <li key={childIndex}>
                               <a
@@ -365,8 +375,12 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
                                 onClick={e => {
                                   handleClick(e, index);
                                   setOpenIndex(null);
+                                  if (onNavigate) {
+                                    e.preventDefault();
+                                    onNavigate(child.href);
+                                  }
                                 }}
-                                className="block px-5 py-2 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                                className="block px-5 py-2 text-sm text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-colors whitespace-nowrap"
                               >
                                 {child.label}
                               </a>
@@ -376,16 +390,22 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
                       )}
                     </>
                   ) : (
-                    <a                      
+                    <a
                       href={item.href}
-                      onClick={e => handleClick(e, index)}
+                      onClick={e => {
+                        handleClick(e, index);
+                        if (onNavigate) {
+                          e.preventDefault();
+                          onNavigate(item.href);
+                        }
+                      }}
                       onKeyDown={e => handleKeyDown(e, index)}
                       className="outline-none py-[0.6em] px-[1em] inline-block transition-opacity duration-200 hover:opacity-70"
                     >
                       <GlitchText
                         enableOnHover
                         speed={0.3}
-                        className="!mx-0 !inline-block !cursor-pointer !text-[0.95rem] !font-medium !text-[color:inherit]"
+                        className="mx-0! inline-block! cursor-pointer! text-[0.95rem]! font-medium! text-inherit!"
                       >
                         {item.label}
                       </GlitchText>
@@ -397,13 +417,15 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
           </ul>
         </nav>
         <span
-            className={`effect filter ${activeIndex === -1 ? 'opacity-0' : ''}`}
-            ref={filterRef}
-          />
-          <span
-            className={`effect text ${activeIndex === -1 ? 'opacity-0' : ''}`}
-            ref={textRef}
-          />
+          className="effect filter"
+          ref={filterRef}
+          style={{ opacity: activeIndex === -1 ? 0 : 1 }}
+        />
+        <span
+          className="effect text"
+          ref={textRef}
+          style={{ opacity: activeIndex === -1 ? 0 : 1 }}
+        />
       </div>
     </>
   );
