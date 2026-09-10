@@ -127,11 +127,26 @@ const Navbar: React.FC = () => {
           }}
           className="flex items-center gap-2 text-black dark:text-white"
         >
-          <img src="/LogoZremBg.png" alt="Z" className="h-8 w-8 object-contain" />
+          <div className="h-8 w-8">
+            {/* Light Mode */}
+            <img
+              src="/LogoZdarkRemBg.png"
+              alt="Z"
+              className="h-8 w-8 object-contain dark:hidden"
+            />
+
+            {/* Dark Mode */}
+            <img
+              src="/LogoZremBg.png"
+              alt="Z"
+              className="hidden h-8 w-8 object-contain dark:block"
+            />
+          </div>
+
           <GlitchText
             enableOnHover
             speed={0.4}
-            className="!mx-0 !cursor-pointer !text-lg !font-semibold !tracking-wide"
+            className="!mx-0 !cursor-pointer !text-lg !font-bold !tracking-wide !text-[color:inherit]"
           >
             Portofolio
           </GlitchText>

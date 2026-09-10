@@ -1,4 +1,4 @@
-import { Suspense, lazy, ComponentType } from 'react';
+import { Suspense, lazy, type ComponentType } from 'react';
 import { useInView } from '../../hooks/useInView';
 import { useTheme } from '../../hooks/useTheme';
 import SectionLoader from './SectionLoader';

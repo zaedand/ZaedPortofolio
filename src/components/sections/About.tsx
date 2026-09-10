@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanyardCard from '../animated/LanyardCard';
+import { useTheme } from '../../hooks/useTheme';
 
 type TechCategory = 'all' | 'frontend' | 'backend' | 'framework' | 'tools';
 type TechItem = { name: string; category: TechCategory[] };
@@ -172,6 +173,7 @@ const PersonalInfoBlock = () => {
 // ---------- Komponen utama About ----------
 const About: React.FC = () => {
   const { t } = useTranslation();
+  const isDark = useTheme();
 
   const [revealed, setRevealed] = useState(false);
   useEffect(() => {
@@ -190,7 +192,11 @@ const About: React.FC = () => {
       >
         <div className="mx-auto h-full max-w-6xl px-6">
           <div className="pointer-events-auto absolute left-0 top-0 h-[380px] w-full md:left-0 md:top-0 md:h-[40%] md:w-[45%]">
-            <LanyardCard photoSrc="/zaidan.jpeg" backPhotoSrc="/zaed.jpeg" />
+            <LanyardCard
+              key={isDark ? 'lanyard-dark' : 'lanyard-light'}
+              photoSrc="/zaidan.jpeg"
+              backPhotoSrc="/zaed.jpeg"
+            />
           </div>
         </div>
       </div>
