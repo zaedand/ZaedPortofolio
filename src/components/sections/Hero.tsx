@@ -1,8 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import MoltenMetal from '@/components/animated/MoltenMetal';
+import { useTheme } from '../../hooks/useTheme';
 
 const Hero = () => {
   const { t, i18n } = useTranslation();
+  const isDark = useTheme();
 
   const today = new Date().toLocaleDateString(i18n.language === 'id' ? 'id-ID' : 'en-US', {
     weekday: 'long',
@@ -10,14 +12,14 @@ const Hero = () => {
     month: 'long',
     day: 'numeric',
   });
-
+   
   return (
-    <section id="home" className="relative isolate min-h-screen overflow-hidden bg-sky-100 dark:bg-black">
+    <section id="home" className="relative isolate min-h-screen overflow-hidden bg-white dark:bg-black">
       <div className="absolute inset-0 -z-10">
         <MoltenMetal
-          color1="#3B82F6"
-          color2="#2800ff"
-          color3="#ffffff"
+          color1={isDark ? '#3B82F6' : '#22D3EE'}
+          color2={isDark ? '#2800ff' : '#0369A1'}
+          color3={isDark ? '#ffffff' : '#E0F2FE'}
           colorMode="molten"
           speed={0.1}
           scale={4}

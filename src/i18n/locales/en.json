@@ -6,67 +6,72 @@
     "more": "More",
     "education": "Education",
     "skills": "Skills",
-    "certificates": "Certifications & Awards",
+    "certificates": "Certificates & Awards",
     "contact": "Contact"
   },
-  
   "hero": {
     "status": "Open to Work",
-    "domicile": "Malang, East Java, Indonesia"
+    "domicile": "Turen, Malang Regency, East Java"
   },
   "about": {
-    "eyebrow": "// about",
     "heading": "Hi, I'm Zaidan Akmal Mauludi",
-    "bio": "An Informatics Engineering Education student at Universitas Negeri Malang, currently finishing my thesis by building StuDev — a gamification-based learning platform for the Basic Programming course. My focus is full-stack web development, from designing motivating learning flows to writing clean code underneath.",
+    "bio": "Bachelor's graduate in Informatics Engineering Education from Universitas Negeri Malang with experience in software development, backend, database, and real-time systems through academic projects and industry experience. Proficient in Laravel, Node.js, Express.js, React, SQL, MySQL, and PostgreSQL for building database-driven applications and REST APIs. Experienced in API integration, real-time monitoring, GIS, networking, data processing with Python, and computer vision — from requirements analysis, system and database design, implementation, testing, to evaluation.",
     "tags": ["Informatics Engineering Education", "Universitas Negeri Malang", "Full-Stack Developer"],
     "downloadCv": "Download CV",
     "education": {
-      "eyebrow": "// education",
       "university": "Universitas Negeri Malang (UM)",
       "major": "Informatics Engineering Education (B.Ed.)",
-      "gpa": "GPA: 3.8x / 4.00",
+      "gpa": "GPA: 3.84 / 4.00",
       "coursesLabel": "Relevant coursework",
       "courses": [
-        "Databases",
-        "Web Programming",
-        "Data Structures & Algorithms",
         "Software Engineering",
-        "Computer Networks",
-        "Artificial Intelligence"
+        "Web Programming",
+        "Image Processing",
+        "Augmented and Virtual Reality",
+        "Numerical Computing",
+        "Computer Networks"
       ]
     },
     "techstack": {
-      "eyebrow": "// tech stack",
       "heading": "Tools & Technologies",
-      "tabs": {
-        "all": "All",
-        "frontend": "Frontend",
-        "backend": "Backend",
-        "framework": "Framework",
-        "tools": "Tools"
-      },
+      "tabs": { "all": "All", "frontend": "Frontend", "backend": "Backend", "framework": "Framework", "tools": "Tools" },
       "items": [
+        { "name": "HTML", "category": ["frontend"] },
+        { "name": "CSS", "category": ["frontend"] },
         { "name": "JavaScript", "category": ["frontend", "backend"] },
         { "name": "TypeScript", "category": ["frontend", "backend"] },
         { "name": "PHP", "category": ["backend"] },
         { "name": "Python", "category": ["backend"] },
         { "name": "SQL", "category": ["backend"] },
+        { "name": "C++", "category": ["backend"] },
+        { "name": "Java", "category": ["backend"] },
+        { "name": "Go", "category": ["backend"] },
         { "name": "React", "category": ["frontend", "framework"] },
+        { "name": "Bootstrap", "category": ["frontend", "framework"] },
         { "name": "Tailwind CSS", "category": ["frontend", "framework"] },
         { "name": "Laravel", "category": ["backend", "framework"] },
         { "name": "Node.js", "category": ["backend", "framework"] },
+        { "name": "Express.js", "category": ["backend", "framework"] },
+        { "name": "Socket.IO", "category": ["backend", "tools"] },
         { "name": "MySQL", "category": ["tools"] },
         { "name": "PostgreSQL", "category": ["tools"] },
         { "name": "Git", "category": ["tools"] },
         { "name": "Figma", "category": ["tools"] },
-        { "name": "Docker", "category": ["tools"] }
+        { "name": "Visual Studio Code", "category": ["tools"] },
+        { "name": "Google Colab", "category": ["tools"] }
       ]
     },
     "personal": {
       "softSkillsLabel": "Soft Skills",
-      "softSkills": ["Problem Solving", "Communication", "Teamwork", "Time Management", "Adaptability"],
+      "softSkills": ["Adaptability", "Problem Solving", "Discipline", "Teamwork"],
       "hardSkillsLabel": "Hard Skills",
-      "hardSkills": ["Full-Stack Web Development", "Database Design", "UI/UX Design", "Data Analysis"],
+      "hardSkills": [
+        "Dynamic & Responsive Web Development (CRUD, REST API)",
+        "Authentication & Role-Based Access",
+        "Real-Time System (Socket.IO)",
+        "Interface Design (UI/UX)",
+        "Computer Vision (YOLOv8)"
+      ],
       "languagesLabel": "Languages",
       "languages": [
         { "name": "Indonesian", "level": "Native" },
@@ -75,51 +80,253 @@
     }
   },
   "experience": {
-    "eyebrow": "// experience",
     "heading": "Journey",
     "viewDocs": "View documentation",
     "closeDocs": "Close documentation",
     "items": [
-      { "id": "skripsi", "title": "Thesis", "subtitle": "StuDev — Gamification-based Learning Platform", "period": "2026 - present" },
-      { "id": "pi", "title": "Industrial Internship", "subtitle": "PT Pindad (Persero)", "period": "2025" },
-      { "id": "am", "title": "Teaching Assistantship", "subtitle": "SMKN 2 Singosari", "period": "2024" },
-      { "id": "kkn", "title": "Community Service (KKN)", "subtitle": "Bangeran Village, Mojokerto", "period": "2024" },
-      { "id": "akademik", "title": "Academic", "subtitle": "Informatics Engineering Education, Universitas Negeri Malang", "period": "2022 - present" }
+      { "id": "skripsi", "title": "Undergraduate Thesis", "subtitle": "StuDev — Gamification-Based Learning Management System, Faculty of Engineering UM", "period": "October 2025 – April 2026" },
+      { "id": "pi", "title": "Software Engineer Intern (Full-Stack Developer)", "subtitle": "PT. Pindad (Persero) — Ammunition Division, IT Services Department", "period": "July – September 2025" },
+      { "id": "am", "title": "Teaching Assistant Intern", "subtitle": "SMKN 02 Singosari", "period": "February – June 2025" },
+      { "id": "kkn", "title": "Community Service Program (Documentarian)", "subtitle": "Bangeran Village, Mojokerto Regency", "period": "September – November 2024" },
+      { "id": "akademik", "title": "Academic", "subtitle": "Informatics Engineering Education, Universitas Negeri Malang", "period": "2022 – present" }
     ]
   },
   "projects": {
-    "eyebrow": "// projects",
     "heading": "Projects",
     "viewDetail": "View Detail",
+    "viewFullDetail": "View Full Detail",
     "seeMore": "See More",
     "seeLess": "Show Less",
     "items": [
-      { "id": 1, "title": "StuDev", "desc": "A gamification platform for the Basic Programming course.", "tags": ["React", "Laravel"] },
-      { "id": 2, "title": "Project 2", "desc": "Short project description.", "tags": ["TypeScript"] },
-      { "id": 3, "title": "Project 3", "desc": "Short project description.", "tags": ["Python"] },
-      { "id": 4, "title": "Project 4", "desc": "Short project description.", "tags": ["Node.js"] },
-      { "id": 5, "title": "Project 5", "desc": "Short project description.", "tags": ["MySQL"] }
-    ]
+      { "id": 1, "slug": "studev", "title": "StuDev", "desc": "Gamification-based LMS for the Introduction to Programming course — fire points, leaderboard, flipbook, quizzes, lab assignments, and an online compiler.", "tags": ["Laravel", "React", "TypeScript", "Inertia.js"] },
+      { "id": 2, "slug": "simira", "title": "SIMIRA", "desc": "Web-based GIS for real-time monitoring and reporting of IP PBX telephone network status at PT. Pindad.", "tags": ["Laravel", "Node.js", "Socket.IO", "Leaflet.js"] },
+      { "id": 3, "slug": "smoking-detection", "title": "Smoking Detection", "desc": "Object detection system to identify smoking activity in real-time images and videos using YOLOv8s.", "tags": ["Python", "YOLOv8", "Roboflow"] },
+      { "id": 4, "slug": "smart-townhall", "title": "Smart-Townhall", "desc": "Public service administration platform — complaints, E-KTP, taxes, and citizen request validation by admins.", "tags": ["Laravel", "MySQL", "Bootstrap"] },
+      { "id": 5, "slug": "ez-zaon", "title": "Ez-Zaon", "desc": "Zakat calculation and payment platform with a multi-type zakat calculator and payment validation.", "tags": ["Laravel", "MySQL", "Bootstrap"] },
+      { "id": 6, "slug": "profads", "title": "ProfAds", "desc": "Predictive analytics application for advertising profit using custom Multiple Linear Regression on the backend.", "tags": ["Laravel", "PHP", "MySQL"] },
+      { "id": 7, "slug": "desa-bangeran", "title": "Bangeran Village Website", "desc": "Profile and information website for BUMDes Bangeran Village, Mojokerto, developed during the community service program.", "tags": ["React.js", "Figma"] },
+      { "id": 8, "slug": "molekular", "title": "MolekulAR", "desc": "Augmented Reality mobile application for marker-based visualization of chemical molecular geometry.", "tags": ["Unity", "C#", "Blender"] },
+      { "id": 9, "slug": "eduweb", "title": "EduWeb", "desc": "Web-based teaching media to support web programming instruction at SMKN 02 Singosari.", "tags": ["HTML", "CSS", "JavaScript", "SCSS"] }
+    ],
+    "details": {
+      "studev": {
+        "title": "StuDev",
+        "period": "October 2025 – April 2026",
+        "stack": ["Laravel 12", "React 19", "Inertia.js", "PHP 8.2", "MySQL 8", "Tailwind CSS 4", "Figma"],
+        "overview": "StuDev is a gamification-based learning platform for the Introduction to Computer Programming course, developed as an individual thesis project to make learning more interactive, structured, and provide direct feedback. The platform has two main roles: Student (accessing materials, quizzes, lab assignments, online compiler, leaderboard) and Instructor (managing content, quizzes, classes, and monitoring student progress).",
+        "background": "Semi-structured interviews with one lecturer and five students revealed suboptimal learning motivation and engagement — some topics (pointers, arrays, stacks, looping) were considered difficult, and learning media remained static (PDF/PowerPoint) without direct feedback or automated assessment.",
+        "features": [
+          "8 structured learning modules (CPMK/ATP, flipbook materials, enrichment, quizzes, lab assignments)",
+          "Automated quizzes — 80 questions (10 per module), max 3 attempts, with anti-cheat mechanism (tab-switch detection)",
+          "Lab assignments — PDF report submission, lecturer grading, and per-class deadlines",
+          "Integrated online compiler for programming practice without installation",
+          "Gamification — Fire Points, Badges, and Leaderboard tied to learning activities",
+          "Instructor dashboard — quiz analytics (average score, pass rate) and student activity monitoring"
+        ],
+        "architecture": "Developed as a Single Page Application (SPA) using Inertia.js as a bridge between Laravel (backend) and React (frontend), enabling page navigation without full page reloads while still using Laravel's routing and controllers conventionally. The system is organized into 4 functional layers: Authentication Layer, Learning Layer, Gamification Layer, and Instructor Layer.",
+        "contributions": [
+          "Analyzed requirements through interviews with lecturers & students; designed use cases, flowcharts, and database structure",
+          "Designed UI/UX in Figma and developed the system as an SPA using the 4D model (Define, Design, Develop, Disseminate)",
+          "Implemented role-based access (Student/Instructor), module system, automated quizzes, lab assignments, online compiler, and gamification mechanism",
+          "Built instructor dashboard for learning analytics and class management",
+          "Conducted testing (media & content expert validation, ARCS and UEQ questionnaires with 40 students) and deployed to a VPS"
+        ],
+        "challenges": "The main challenge was converting learning activities (reading, quizzes, lab assignments) into trackable data that could be fairly converted into points — for example, the reading process was designed in stages (pre-reading → flipbook → completion → reflection) so assessment wasn't just detecting an opened file.",
+        "results": "The product was used both as a learning medium and as the evaluation object of the thesis. Media and material testing by experts, along with testing with 40 students using the Wilcoxon Signed-Rank Test, resulted in a Very Good evaluation category."
+      },
+      "simira": {
+        "title": "SIMIRA",
+        "period": "July – September 2025",
+        "stack": ["Laravel", "Node.js", "Express.js", "Socket.IO", "MySQL", "Leaflet.js", "Chart.js"],
+        "overview": "SIMIRA is a web-based system for real-time monitoring and reporting of the internal IP PBX-based telephone network condition at PT. Pindad, combining geographic visualization (GIS), device data integration, and real-time communication in one centralized system. The system is designed with a microservice architecture: Laravel as the main web application, and Express.js as the API server and WebSocket handler.",
+        "features": [
+          "Device status classification: Online, In Use, and Offline based on endpoint response",
+          "Real-time map visualization (Leaflet.js) for device location & status",
+          "Device history — recording status changes, duration, and relation to each node",
+          "Real-time broadcast via Socket.IO — map and dashboard update without page reload",
+          "Role-based access control — Admin (Dashboard, Manage, Logs, Users) and User (Dashboard, Logs)",
+          "PDF report export (Laravel DomPDF)"
+        ],
+        "architecture": "The server polls the IP PBX endpoint every 10 seconds. Device status is classified and recorded to the device_history table, then broadcast to clients via Socket.IO. Main database schema: nodes (device data, IP, GIS coordinates), device_history (status change history), and users (role-based access).",
+        "contributions": [
+          "Analyzed system requirements and monitoring flow with the IT & Quality Control team; designed the database structure (nodes, device_history, users)",
+          "Developed the backend using Laravel and an Express.js server as the API/WebSocket handler; integrated the IP PBX API",
+          "Implemented real-time monitoring (Socket.IO), GIS visualization (Leaflet.js), and authentication & role-based access control",
+          "Built device CRUD features, device history, uptime/downtime calculation, notifications, and PDF report export",
+          "Considered performance & maintainability — database indexing, statistics caching, and process management with PM2"
+        ],
+        "challenges": "Challenges included limiting WebSocket broadcast frequency to avoid overloading clients, database indexing to speed up searches, and monitoring application logs and periodic backup/cleanup of historical data.",
+        "results": "SIMIRA provides a centralized monitoring system combining GIS, API integration, database, real-time communication, device history, and reporting in one platform — offering direct experience applying system design, microservice architecture, and real-time systems in an industrial environment."
+      },
+      "smoking-detection": {
+        "title": "Smoking Detection",
+        "period": "October – December 2025",
+        "stack": ["Python", "YOLOv8s", "Roboflow", "OpenCV", "Google Colab"],
+        "overview": "A computer vision project that developed an automatic detection model to identify smoking activity in images and videos using YOLOv8s, as an automated visual surveillance approach to support smoke-free area monitoring. Uses the DBSS_Smoking dataset containing 9,940 images of smoking activity.",
+        "features": [
+          "Complete pipeline: data collection, preprocessing & augmentation, YOLOv8s training, model evaluation, real-time camera test, and performance analysis",
+          "Comparison of 3 data split configurations (80:10:10, 75:15:10, 70:15:15)",
+          "Image augmentation experiments (rotation -15° to 15°) compared with non-augmentation",
+          "Real-time testing on 500 frames for confidence stability analysis"
+        ],
+        "architecture": "Training used YOLOv8s with image size 320×320, 75 epochs, and early stopping (patience 10) on Google Colab. The 75:15:10 split was chosen as the most balanced: Precision 77.39%, Recall 75.51%, F1 76.44%, inference time 2.42 ms/image.",
+        "contributions": [
+          "Prepared and explored the DBSS_Smoking dataset, performed preprocessing and image augmentation experiments",
+          "Trained the YOLOv8s model with several data split configurations using Google Colab",
+          "Evaluated the model using precision, recall, F1-score, mAP50, mAP50-95, and inference time",
+          "Tested the model in real time using a camera on 500 frames and analyzed confidence stability",
+          "Compared all configurations and documented the experiment results"
+        ],
+        "challenges": "An interesting finding: in the 80:10:10 experiment, the model without augmentation actually outperformed the augmented one on all metrics — showing that augmentation does not always improve performance and must be evaluated according to dataset characteristics, not applied automatically.",
+        "results": "The project produced a YOLOv8s model capable of detecting smoking activity in images and videos in real time (highest average confidence 0.559 in the 75:15:10 configuration), while also providing experience in applying a full computer vision pipeline from dataset preparation to real-time inference."
+      },
+      "smart-townhall": {
+        "title": "Smart-Townhall",
+        "period": "March – May 2024",
+        "stack": ["Laravel", "PHP", "MySQL", "Bootstrap", "Figma"],
+        "overview": "Smart-Townhall is a web-based public service administration platform that simplifies access to administrative services and reduces manual processes through digital workflows, developed with a team of 3 in the SDGs Hackathon at Universitas Negeri Malang 2024. The platform provides separate interfaces for citizens and admins.",
+        "background": "Conventional administrative services generally involve manual document submission, repeated visits to government offices, and time-consuming verification processes.",
+        "features": [
+          "Authentication before accessing administrative services",
+          "Complaints — description, contact, and supporting documents",
+          "E-KTP and administrative document requests (download templates, upload documents)",
+          "Tax services — input tax data, tax type, amount, and identity documents",
+          "Feedback & suggestions, and access to the latest news from admin",
+          "Admin features — reviewing complaints, validating requests, managing news & validation status"
+        ],
+        "architecture": "Developed as a Laravel monolith dual-client (citizen & admin) with separate controllers for Complaint, E-KTP, Document, and Tax. The flow branches at the validation stage: invalid requests are returned for revision/rejection, while valid ones are processed further before the result is sent to the citizen.",
+        "contributions": [
+          "Participated in requirements analysis, architecture design, and application flow design",
+          "Developed the backend using Laravel/PHP and frontend/View interfaces for citizens and admins",
+          "Implemented CRUD, form processing & validation, relational database integration, file upload, and authentication & role-based access",
+          "Designed UI/UX using Figma and participated in testing and iterative development"
+        ],
+        "challenges": "Challenges included multi-role application (different flows & interfaces for citizens and admins), document-based workflows, request validation connecting citizen submissions with admin verification, and multiple different services on the same application infrastructure.",
+        "results": "Smart-Townhall demonstrated experience in developing a database-driven multi-role web application with authentication, CRUD, form processing, file handling, and validation flows — strengthening the understanding of translating real-world administrative processes into structured software workflows."
+      },
+      "ez-zaon": {
+        "title": "Ez-Zaon",
+        "period": "September – December 2023",
+        "stack": ["Laravel", "PHP", "MySQL", "Bootstrap", "Figma"],
+        "overview": "Ez-Zaon is a web-based platform designed to help users calculate and distribute zakat and make donations, developed with a team of 4 using an Agile approach. The system provides calculators for several types of zakat, a payment flow, donation and humanitarian news information, and an admin dashboard for transaction validation.",
+        "features": [
+          "Zakat Calculator — calculation of income, gold, trade, agricultural, and livestock zakat based on nisab provisions",
+          "Zakat & Donation Payment — submission of payment data, contact, and amount",
+          "Payment Validation — admin checks & validates payment proofs before transactions are verified",
+          "News & Partner Management — management of news and partner data with location navigation via Google Maps",
+          "Reporting — viewing verified transactions and exporting data to Excel",
+          "Role-Based Access — separation of user and admin access"
+        ],
+        "architecture": "Developed as a Laravel monolith dual-client with ZakatController, PaymentController, and NewsController, connected to a MySQL database (zakat, payments, news, partners).",
+        "contributions": [
+          "Contributed to developing a full-stack Laravel web application for zakat calculation, donation management, and payment validation with the team",
+          "Implemented zakat calculation logic and transaction processing, developed user and admin interfaces, and integrated database-driven workflows",
+          "Contributed to UI/UX design using Figma as well as reporting and data export features"
+        ],
+        "challenges": "Challenges included translating calculation rules for several types of zakat (including nisab checks) into application business logic, designing the payment & verification workflow, separating multi-role access, and providing reporting & data export for administrative needs.",
+        "results": "Acted as Full-Stack in developing the frontend and backend, producing a functional zakat & donation platform with an end-to-end payment validation flow."
+      },
+      "profads": {
+        "title": "ProfAds",
+        "period": "March – May 2024",
+        "stack": ["Laravel", "PHP", "MySQL", "Bootstrap", "JavaScript"],
+        "overview": "ProfAds is a web-based predictive analytics application that helps sellers estimate product sales and evaluate potential net profit based on advertising expenses and customer engagement, developed with a team of 5. The application implements Multiple Linear Regression to predict the number of products sold using advertising cost and number of clicks as independent variables.",
+        "features": [
+          "Input advertising cost and number of clicks",
+          "Processing of historical datasets and Multiple Linear Regression calculation",
+          "Product sales prediction and revenue and net profit/loss calculation",
+          "Visualization and display of calculation results"
+        ],
+        "architecture": "The Multiple Linear Regression algorithm is implemented directly in PHP/Laravel (not an external ML library) — the backend handles statistical variable aggregation, cross-product calculations, regression matrix construction, determinants, regression coefficients, and sales prediction, implemented in Laravel's RegresiController. Example: for an input of Rp600,000 advertising cost and 120 clicks, the model produced an estimated sales of ±29.17 products, compared to the observed 30 products in the test dataset.",
+        "contributions": [
+          "Contributed to system analysis and design, and developed backend logic using Laravel/PHP",
+          "Implemented the Multiple Linear Regression algorithm, processed and integrated historical datasets",
+          "Developed prediction logic and profit calculation, as well as View/frontend interface",
+          "Participated in application testing and validation"
+        ],
+        "challenges": "Challenges included translating the mathematical formulation of Multiple Linear Regression into PHP/Laravel logic (including matrix & determinant calculations), connecting backend prediction logic with the View layer, and designing the data-to-decision flow from raw input to profit/loss estimates.",
+        "results": "ProfAds demonstrated the ability to combine full-stack web development with data-driven algorithmic functionality — from statistical models in the backend logic to an interactive application for users."
+      },
+      "desa-bangeran": {
+        "title": "Bangeran Village Website",
+        "period": "September – November 2024",
+        "stack": ["React.js", "HTML", "CSS", "JavaScript", "Figma"],
+        "overview": "The Bangeran Village Profile Website is a village information website developed as a digital medium to present village information and profiles to the community, developed with a team during the community service program based on needs obtained through observation with BUMDes Bangeran managers.",
+        "features": [
+          "Information and profile of Bangeran Village",
+          "Information on village potential and activities, as well as BUMDes information",
+          "Structured content presentation with inter-page navigation",
+          "Responsive web interface",
+          "UI design integration from Figma to React.js"
+        ],
+        "architecture": "Developed as a component-based React SPA with static content (no backend/database).",
+        "contributions": [
+          "Conducted needs surveys with BUMDes Bangeran managers together with the team",
+          "Helped develop the website using React.js, implemented responsive UI, and translated Figma designs into reusable React components",
+          "Managed social media (Instagram, TikTok, YouTube), designed content themes, and produced village profile videos"
+        ],
+        "results": "This website presents village and BUMDes information in a structured and easily accessible manner, and also forms part of the community service program output in Bangeran Village, Mojokerto Regency."
+      },
+      "molekular": {
+        "title": "MolekulAR",
+        "period": "March – May 2024",
+        "stack": ["Unity", "C#", "Blender", "Android"],
+        "overview": "MolekulAR is an Android-based Augmented Reality application that allows users to visualize and interact with 3D molecular geometry through a smartphone camera, developed with a team of 3 to address the difficulty of understanding abstract molecular structures when presented only through conventional 2D learning media.",
+        "features": [
+          "Marker-based AR — detects markers through a smartphone camera and displays 3D molecular models in the real environment",
+          "3D model interaction — rotate, zoom in, and zoom out of molecular objects",
+          "Molecular information — number of electrons, molecular examples, and molecular geometry shapes",
+          "Interactive visualization from various viewpoints"
+        ],
+        "architecture": "A standalone mobile application based on Unity Runtime with marker detection & AR renderer (C#), utilizing local 3D assets (Blender models) without a backend server.",
+        "contributions": [
+          "Developed an Augmented Reality-based learning application to help visualize chemistry molecular geometry material, using the waterfall – ADDIE method",
+          "Contributed to application development using Unity and creation of 3D assets using Blender, including developing molecular objects and markers for AR implementation needs"
+        ],
+        "results": "The project produced an educational AR mobile application that functions as a learning medium for molecular geometry, developed through an iterative process from interaction design, 3D asset preparation, AR implementation, to testing and demonstration to users."
+      },
+      "eduweb": {
+        "title": "EduWeb",
+        "period": "February – June 2025",
+        "stack": ["HTML", "CSS", "JavaScript", "SCSS"],
+        "overview": "EduWeb is a learning website developed as a digital medium to provide structured learning materials and modules at SMKN 02 Singosari, helping deliver materials through a more organized and easily accessible web interface — used to support web programming instruction in the RPL major and Broadcasting subject.",
+        "features": [
+          "Presentation of structured learning materials and modules",
+          "Navigation between materials",
+          "Responsive layout",
+          "Interactive frontend elements using JavaScript",
+          "Styling using CSS and SCSS"
+        ],
+        "architecture": "Static frontend (HTML, CSS, JavaScript, SCSS) without backend/database, focused on semantic HTML, SCSS styling architecture, and DOM manipulation.",
+        "contributions": [
+          "Developed the EduWeb website using HTML, CSS, JavaScript, and SCSS, implemented structured learning modules, responsive layouts, navigation, and interactive frontend components",
+          "Developed web programming learning materials and digital learning media using Visual Studio Code, the website, and PowerPoint to support teaching in the RPL and Broadcasting majors",
+          "Designed learning modules and supporting learning resources, and assisted students during practice sessions with technical guidance"
+        ],
+        "results": "EduWeb was used as a supporting teaching medium for web programming learning at SMKN 02 Singosari during the Teaching Assistant Intern period, helping deliver materials in a more structured and easily accessible way to students."
+      }
+    }
   },
   "certificates": {
-    "eyebrow": "// certifications & awards",
-    "heading": "Certifications & Awards",
+    "heading": "Certificates & Awards",
     "viewDetail": "View Detail",
     "seeMore": "See All",
     "seeLess": "Show Less",
     "close": "Close",
     "items": [
-      { "id": 1, "title": "Certificate 1", "issuer": "Issuer", "year": "2025" },
-      { "id": 2, "title": "Certificate 2", "issuer": "Issuer", "year": "2025" },
-      { "id": 3, "title": "Certificate 3", "issuer": "Issuer", "year": "2024" },
-      { "id": 4, "title": "Certificate 4", "issuer": "Issuer", "year": "2024" }
+      { "id": 1, "title": "Gold Medal — 1st Place, IDEA-Fest 2024", "issuer": "Universitas Negeri Malang (National Level)", "year": "2024", "desc": "Won 1st Place in the national-level IDEA-Fest 2024 competition held by Universitas Negeri Malang." },
+      { "id": 2, "title": "Finalist, Hackathon SDG's UM 2024", "issuer": "Universitas Negeri Malang (National Level)", "year": "2024", "desc": "Advanced as a finalist in the national-level Hackathon SDG's UM 2024 with Tim Cyber Ikhwan, developing Smart-Townhall." },
+      { "id": 3, "title": "Cisco IT: Essentials", "issuer": "Universitas Negeri Malang", "year": "2024", "desc": "Foundational IT competency certification covering computer hardware/software assembly, troubleshooting, and maintenance." },
+      { "id": 4, "title": "HTML, CSS, JavaScript, React — Online Certification Course", "issuer": "Udemy (YouAccel Training, Blue Digital Media)", "year": "2026", "desc": "An online front-end development certification course covering HTML, CSS, JavaScript, and React — 16 total hours." },
+      { "id": 5, "title": "English Proficiency Test", "issuer": "Center for Language and Culture, Faculty of Letters, Universitas Negeri Malang", "year": "2022", "desc": "Institutional English proficiency test with a total score of 427, placing at the Pre-Advanced level." },
+      { "id": 6, "title": "Industrial Internship Certificate", "issuer": "PT. Pindad (Persero)", "year": "2025", "desc": "Certificate of completion for the Software Engineer Intern program at PT. Pindad, Ammunition Division, IT Services Department." },
+      { "id": 7, "title": "Copyright Certificate (HKI)", "issuer": "Ministry of Law and Human Rights of Indonesia", "year": "2025", "desc": "Registered copyright for a developed work, serving as proof of intellectual property protection." }
     ]
   },
   "footer": {
-    "eyebrow": "// contact",
     "heading": "Let's connect",
     "subtext": "Open to job opportunities, collaboration, or just a chat.",
-    "email": "email@example.com",
+    "email": "zaidanakmmauludi@gmail.com",
     "socials": { "github": "GitHub", "linkedin": "LinkedIn", "instagram": "Instagram" },
     "rights": "All rights reserved."
   }

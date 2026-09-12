@@ -146,7 +146,7 @@ const Navbar: React.FC = () => {
           <GlitchText
             enableOnHover
             speed={0.4}
-            className="!mx-0 !cursor-pointer !text-lg !font-bold !tracking-wide !text-[color:inherit]"
+            className="mx-0! !cursor-pointer !text-lg !font-bold !tracking-wide !text-[color:inherit]"
           >
             Portofolio
           </GlitchText>

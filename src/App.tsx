@@ -1,43 +1,17 @@
-import Navbar from './components/layout/Navbar';
-import LazySection from './components/layout/LazySection';
-import Hero from './components/sections/Hero';
-import { SmoothCursor } from './components/ui/smooth-cursor';
-import Footer from './components/sections/Footer';
+import { Routes, Route } from 'react-router-dom';
 import { LenisProvider } from './context/LenisContext';
+import Home from './pages/Home';
+import { SmoothCursor } from './components/ui/smooth-cursor';
+import ProjectDetail from './pages/ProjectDetail';
 
 function App() {
   return (
     <LenisProvider>
       <SmoothCursor />
-      <Navbar />
-      <Hero />
-
-      <LazySection
-        id="about"
-        importFn={() => import('./components/sections/About')}
-        minHeight="100vh"
-        bgColor="#0d151a"
-      />
-      <LazySection
-        id="experience"
-        importFn={() => import('./components/sections/Experience')}
-        minHeight="100vh"
-        bgColor="#0B0D10"
-      />
-      <LazySection
-        id="projects"
-        importFn={() => import('./components/sections/Projects')}
-        minHeight="100vh"
-        bgColor="#0d151a"
-      />
-      <LazySection
-        id="certificates"
-        importFn={() => import('./components/sections/Certificates')}
-        minHeight="100vh"
-        bgColor="#0B0D10"
-      />
-
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects/:slug" element={<ProjectDetail />} />
+      </Routes>
     </LenisProvider>
   );
 }

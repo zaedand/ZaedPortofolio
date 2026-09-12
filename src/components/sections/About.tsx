@@ -39,7 +39,6 @@ const EducationBlock = () => {
         inView ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
       }`}
     >
-      <p className="font-mono text-sm tracking-wide text-[#3B5FE0] dark:text-[#7C9CFF]">{t('about.education.eyebrow')}</p>
       <h3 className="mt-2 text-2xl font-semibold text-black dark:text-[#F2F1EC]">{t('about.education.university')}</h3>
       <p className="mt-1 text-black/60 dark:text-white/60">{t('about.education.major')}</p>
       <p className="mt-1 text-sm text-black/40 dark:text-white/40">{t('about.education.gpa')}</p>
@@ -86,7 +85,6 @@ const TechStackBlock = () => {
         inView ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
       }`}
     >
-      <p className="font-mono text-sm tracking-wide text-[#3B5FE0] dark:text-[#7C9CFF]">{t('about.techstack.eyebrow')}</p>
       <h3 className="mt-2 text-2xl font-semibold text-black dark:text-[#F2F1EC]">{t('about.techstack.heading')}</h3>
 
       <div className="mt-5 flex flex-wrap gap-2">
@@ -211,7 +209,6 @@ const About: React.FC = () => {
                 revealed ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
               }`}
             >
-              <p className="font-mono text-sm tracking-wide text-[#3B5FE0] dark:text-[#7C9CFF]">{t('about.eyebrow')}</p>
 
               <h2 className="mt-3 text-3xl font-semibold leading-tight text-black dark:text-[#F2F1EC] md:text-4xl">
                 {t('about.heading')}
@@ -231,8 +228,8 @@ const About: React.FC = () => {
               </div>
 
               <a
-                href="/cv-zaidan.pdf"
-                download
+                href="/CV_Zaidan_Akmal_Mauludi_IT.pdf"
+                download="CV_Zaidan_Akmal_Mauludi_IT.pdf"
                 className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#3B82F6] px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#2f6fd6]"
               >
                 {t('about.downloadCv')}
