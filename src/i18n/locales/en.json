@@ -11,6 +11,7 @@
   },
   "hero": {
     "status": "Open to Work",
+    "roles": ["Junior Software Engineer", "Fullstack Developer", "IT Education", "Learning and Development"],
     "domicile": "Turen, Malang Regency, East Java"
   },
   "about": {

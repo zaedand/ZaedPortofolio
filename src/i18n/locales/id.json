@@ -11,6 +11,7 @@
   },
   "hero": {
     "status": "Terbuka untuk Kerja",
+    "roles": ["Junior Software Engineer", "Fullstack Developer", "IT Education", "Learning and Development"],
     "domicile": "Turen, Kab. Malang, Jawa Timur"
   },
   "about": {

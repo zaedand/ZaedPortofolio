@@ -5,6 +5,7 @@ import { useTheme } from '../../hooks/useTheme';
 const Hero = () => {
   const { t, i18n } = useTranslation();
   const isDark = useTheme();
+  const roles = t('hero.roles', { returnObjects: true }) as string[];
 
   const today = new Date().toLocaleDateString(i18n.language === 'id' ? 'id-ID' : 'en-US', {
     weekday: 'long',
@@ -12,7 +13,7 @@ const Hero = () => {
     month: 'long',
     day: 'numeric',
   });
-   
+
   return (
     <section id="home" className="relative isolate min-h-screen overflow-hidden bg-white dark:bg-black">
       <div className="absolute inset-0 -z-10">
@@ -44,13 +45,12 @@ const Hero = () => {
         </h1>
 
         <p className="mt-3 max-w-2xl text-sm text-black/70 dark:text-white/80 sm:text-base md:mt-2 md:text-xl">
-          <span className="block sm:inline">Software Developer</span>
-          <span className="hidden sm:inline"> | </span>
-          <span className="block sm:inline">UI/UX Designer</span>
-          <span className="hidden sm:inline"> | </span>
-          <span className="block sm:inline">Data Engineer</span>
-          <span className="hidden sm:inline"> | </span>
-          <span className="block sm:inline">Network Engineer</span>
+          {roles.map((role, i) => (
+            <span key={role}>
+              {i > 0 && <span className="hidden sm:inline"> | </span>}
+              <span className="block sm:inline">{role}</span>
+            </span>
+          ))}
         </p>
 
         <div className="pointer-events-auto mt-6 flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm">
