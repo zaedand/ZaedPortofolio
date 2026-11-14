@@ -5,11 +5,13 @@ import type { GooeyNavItem } from '../animated/GooeyNav';
 import GlitchText from '../animated/GlitchText';
 import { useLenis } from '../../context/LenisContext';
 import { AnimatedThemeToggler } from '@/components/ui/animated-theme-toggler';
+import { useIntro } from '@/context/IntroContext';
 
 const Navbar: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const lenis = useLenis();
+  const { introDone } = useIntro();
 
   const handleNavigate = (href: string) => {
     const correctionDelays = [150, 350, 600, 900, 1300];
@@ -31,7 +33,8 @@ const Navbar: React.FC = () => {
       return;
     }
 
-    const fallbackId = href === '#education' || href === '#skills' ? '#about' : href;
+    const fallbackId =
+      href === '#education' || href === '#skills' ? '#about' : href;
     const fallbackEl = scrollToFresh(fallbackId, 1.5);
 
     if (fallbackEl) {
@@ -56,10 +59,10 @@ const Navbar: React.FC = () => {
       children: [
         { label: t('nav.education'), href: '#education' },
         { label: t('nav.skills'), href: '#skills' },
-        { label: t('nav.certificates'), href: '#certificates' }
-      ]
+        { label: t('nav.certificates'), href: '#certificates' },
+      ],
     },
-    { label: t('nav.contact'), href: '#contact' }
+    { label: t('nav.contact'), href: '#contact' },
   ];
 
   const mobileFlatItems = [
@@ -69,7 +72,7 @@ const Navbar: React.FC = () => {
     { label: t('nav.education'), href: '#education' },
     { label: t('nav.skills'), href: '#skills' },
     { label: t('nav.certificates'), href: '#certificates' },
-    { label: t('nav.contact'), href: '#contact' }
+    { label: t('nav.contact'), href: '#contact' },
   ];
 
   const toggleLanguage = () => {
@@ -104,7 +107,9 @@ const Navbar: React.FC = () => {
         }`}
       >
         <img
-          src={i18n.language === 'id' ? '/indonesia.png' : '/united-kingdom.png'}
+          src={
+            i18n.language === 'id' ? '/indonesia.png' : '/united-kingdom.png'
+          }
           alt={i18n.language === 'id' ? 'Bendera Indonesia' : 'UK Flag'}
           className="h-full w-full object-cover"
         />
@@ -117,7 +122,13 @@ const Navbar: React.FC = () => {
   );
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-transparent dark:bg-transparent backdrop-blur-none dark:backdrop-blur-none border-b border-transparent dark:border-transparent">
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-[transform,opacity] duration-700 ease-out ${
+        introDone
+          ? 'translate-y-0 opacity-100'
+          : 'pointer-events-none -translate-y-full opacity-0'
+      }`}
+    >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a
           href="#home"
@@ -130,14 +141,14 @@ const Navbar: React.FC = () => {
           <div className="h-8 w-8">
             {/* Light Mode */}
             <img
-              src="/LogoZdarkRemBg.png"
+              src="/logo-z-black.png"
               alt="Z"
               className="h-8 w-8 object-contain dark:hidden"
             />
 
             {/* Dark Mode */}
             <img
-              src="/LogoZremBg.png"
+              src="/logo-z-white.png"
               alt="Z"
               className="hidden h-8 w-8 object-contain dark:block"
             />
@@ -204,7 +215,7 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile: panel dropdown, link flat biasa (tanpa efek particle) */}
+      {/* Mobile: panel dropdown */}
       <div
         className={`overflow-hidden bg-white/95 dark:bg-black/90 backdrop-blur-md transition-[max-height] duration-300 ease-out md:hidden ${
           isMobileMenuOpen ? 'max-h-[420px]' : 'max-h-0'

@@ -22,6 +22,14 @@ export interface MoltenMetalProps {
   mouseInteraction?: boolean;
   mouseStrength?: number;
   opacity?: number;
+  // === RIPPLE ===
+  ripple?: number;          // 0 = mati, ~0.05 = halus, ~0.15 = kuat
+  rippleSpeed?: number;     // kecepatan gelombang
+  rippleFrequency?: number; // kerapatan riak
+  // === PERFORMA ===
+  maxDpr?: number;          // batas devicePixelRatio (default 1.5)
+  paused?: boolean;         // true = berhenti render (context tetap hidup, tanpa re-create)
+  maxFps?: number;          // 0 = ikut monitor; mis. 45 untuk hemat GPU
   className?: string;
 }
 
@@ -59,25 +67,50 @@ uniform float uGrainIntensity;
 uniform float uOpacity;
 uniform vec2 uMouse;
 uniform float uMouseStrength;
-uniform bool uEnableMouse;
+uniform vec2 uDrift;      // sudah dihitung di CPU (mouse drift)
 uniform vec3 uColor1;
 uniform vec3 uColor2;
 uniform vec3 uColor3;
+// === RIPPLE UNIFORMS ===
+uniform float uRipple;
+uniform float uRippleSpeed;
+uniform float uRippleFreq;
+uniform float uRipPhase;   // iTime * speed * 2PI (CPU)
+uniform vec2  uRipMouse;   // posisi mouse di ruang p (CPU)
+uniform vec2  uRipAmb;     // pusat ripple ambient (CPU)
+uniform float uRipAmbPhase;
 out vec4 fragColor;
 
-float hash(vec2 p) {
-  return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
+// Noise grain tanpa sin() (interleaved gradient noise) — lebih murah
+float grainNoise(vec2 p) {
+  return fract(52.9829189 * fract(dot(p, vec2(0.06711056, 0.00583715))));
 }
 
 void main() {
   float time = iTime * uSpeed;
   vec2 p = uScale * ((gl_FragCoord.xy - 0.5 * iResolution.xy) / iResolution.y) - 0.5;
 
-  vec2 drift = vec2(0.0);
-  if (uEnableMouse) {
-    drift = (uMouse - 0.5) * uMouseStrength * 2.0;
+  p += uDrift;
+
+  // ============================================================
+  // RIPPLE DISPLACEMENT (konstanta waktu/mouse dihitung di CPU)
+  // ============================================================
+  if (uRipple > 0.0) {
+    vec2 rp = p - uRipMouse;
+    float rd2 = dot(rp, rp);
+    float rd = sqrt(rd2);
+    vec2 dir = rp * inversesqrt(rd2 + 1e-8);
+    float wave = sin(rd * uRippleFreq - uRipPhase) * exp(-rd * 1.5);
+
+    vec2 ap = p - uRipAmb;
+    float ad2 = dot(ap, ap);
+    float ad = sqrt(ad2);
+    vec2 adir = ap * inversesqrt(ad2 + 1e-8);
+    float aw = sin(ad * uRippleFreq * 0.65 - uRipAmbPhase) * exp(-ad) * 0.5;
+
+    p += (dir * wave + adir * aw) * uRipple;
   }
-  p += drift;
+  // ============================================================
 
   vec2 i = p;
   float c = 0.0;
@@ -115,7 +148,7 @@ void main() {
 
   float a = g;
   if (uGrain > 0.5) {
-    float gr = hash(gl_FragCoord.xy + iTime);
+    float gr = grainNoise(gl_FragCoord.xy + fract(iTime) * 97.0);
     a += (gr - 0.5) * uGrainIntensity;
   }
   a = clamp(a, 0.0, 1.0) * uOpacity;
@@ -149,9 +182,21 @@ const MoltenMetal: React.FC<MoltenMetalProps> = ({
   mouseInteraction = true,
   mouseStrength = 0.3,
   opacity = 1.0,
+  // === RIPPLE ===
+  ripple = 0.05,
+  rippleSpeed = 1.2,
+  rippleFrequency = 6.0,
+  maxDpr = 1.5,
+  maxFps = 0,
+  paused = false,
   className = ''
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  // Nilai terbaru untuk loop RAF (tanpa re-create effect)
+  const cfgRef = useRef({ mouseInteraction, mouseStrength, ripple, rippleSpeed, scale });
+  const pausedRef = useRef(paused);
+  pausedRef.current = paused;
+  cfgRef.current = { mouseInteraction, mouseStrength, ripple, rippleSpeed, scale };
 
   useEffect(() => {
     const container = containerRef.current;
@@ -162,7 +207,7 @@ const MoltenMetal: React.FC<MoltenMetalProps> = ({
       alpha: true,
       premultipliedAlpha: true,
       antialias: false,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
+      dpr: Math.min(window.devicePixelRatio || 1, Math.max(1, maxDpr))
     });
 
     const gl = renderer.gl;
@@ -195,10 +240,18 @@ const MoltenMetal: React.FC<MoltenMetalProps> = ({
         uOpacity: { value: 1.0 },
         uMouse: { value: new Float32Array([0.5, 0.5]) },
         uMouseStrength: { value: 0.3 },
-        uEnableMouse: { value: true },
+        uDrift: { value: new Float32Array([0, 0]) },
         uColor1: { value: new Float32Array([1, 1, 1]) },
         uColor2: { value: new Float32Array([1, 1, 1]) },
-        uColor3: { value: new Float32Array([1, 1, 1]) }
+        uColor3: { value: new Float32Array([1, 1, 1]) },
+        // === RIPPLE ===
+        uRipple: { value: 0.05 },
+        uRippleSpeed: { value: 1.2 },
+        uRippleFreq: { value: 6.0 },
+        uRipPhase: { value: 0 },
+        uRipMouse: { value: new Float32Array([0, 0]) },
+        uRipAmb: { value: new Float32Array([0, 0]) },
+        uRipAmbPhase: { value: 0 }
       }
     });
 
@@ -206,10 +259,15 @@ const MoltenMetal: React.FC<MoltenMetalProps> = ({
     ctxMap.set(container, { renderer, program, mesh });
 
     const setSize = () => {
-      const rect = container.getBoundingClientRect();
-      const w = Math.max(1, Math.floor(rect.width));
-      const h = Math.max(1, Math.floor(rect.height));
+      // clientWidth/Height = ukuran layout, TIDAK terpengaruh transform scale induk.
+      // (getBoundingClientRect ikut ter-scale → canvas membesar permanen setelah
+      // resize/mount saat hero sedang zoom.)
+      const w = Math.max(1, Math.floor(container.clientWidth));
+      const h = Math.max(1, Math.floor(container.clientHeight));
       renderer.setSize(w, h);
+      // ogl menimpa style ke px; kembalikan ke 100% supaya selalu mengikuti container
+      canvas.style.width = '100%';
+      canvas.style.height = '100%';
       const res = program.uniforms.iResolution.value as Float32Array;
       res[0] = gl.drawingBufferWidth;
       res[1] = gl.drawingBufferHeight;
@@ -240,15 +298,52 @@ const MoltenMetal: React.FC<MoltenMetalProps> = ({
     let isPageVisible = !document.hidden;
     const t0 = performance.now();
 
+    const minFrame = maxFps > 0 ? 1000 / maxFps - 1 : 0;
+    let lastDraw = 0;
+
     const loop = (t: number) => {
-      program.uniforms.iTime.value = (t - t0) * 0.001;
+      raf = requestAnimationFrame(loop);
+      if (pausedRef.current) return;
+      if (minFrame && t - lastDraw < minFrame) return;
+      lastDraw = t;
+
+      const u = program.uniforms;
+      const time = (t - t0) * 0.001;
+      u.iTime.value = time;
+
       currentMouse[0] += 0.05 * (targetMouse[0] - currentMouse[0]);
       currentMouse[1] += 0.05 * (targetMouse[1] - currentMouse[1]);
-      const m = program.uniforms.uMouse.value as Float32Array;
+      const m = u.uMouse.value as Float32Array;
       m[0] = currentMouse[0];
       m[1] = currentMouse[1];
+
+      const cfg = cfgRef.current;
+      const res = u.iResolution.value as Float32Array;
+      const aspect = res[0] / res[1];
+
+      // Drift mouse (CPU)
+      const dr = u.uDrift.value as Float32Array;
+      if (cfg.mouseInteraction) {
+        dr[0] = (m[0] - 0.5) * cfg.mouseStrength * 2;
+        dr[1] = (m[1] - 0.5) * cfg.mouseStrength * 2;
+      } else {
+        dr[0] = 0;
+        dr[1] = 0;
+      }
+
+      // Konstanta ripple (CPU) — dulu dihitung per-piksel di shader
+      if (cfg.ripple > 0) {
+        const rm = u.uRipMouse.value as Float32Array;
+        rm[0] = cfg.scale * ((m[0] - 0.5) * aspect) - 0.5;
+        rm[1] = cfg.scale * (m[1] - 0.5) - 0.5;
+        const ra = u.uRipAmb.value as Float32Array;
+        ra[0] = Math.sin(time * 0.6) * 0.35;
+        ra[1] = Math.cos(time * 0.45) * 0.35;
+        u.uRipPhase.value = time * cfg.rippleSpeed * 6.28318;
+        u.uRipAmbPhase.value = time * cfg.rippleSpeed * 4.0;
+      }
+
       renderer.render({ scene: mesh });
-      raf = requestAnimationFrame(loop);
     };
 
     const tryStart = () => {
@@ -314,7 +409,11 @@ const MoltenMetal: React.FC<MoltenMetalProps> = ({
     u.uGrainIntensity.value = grainIntensity;
     u.uOpacity.value = opacity;
     u.uMouseStrength.value = mouseStrength;
-    u.uEnableMouse.value = mouseInteraction;
+    // === RIPPLE ===
+    u.uRipple.value = ripple;
+    u.uRippleSpeed.value = rippleSpeed;
+    u.uRippleFreq.value = rippleFrequency;
+
     const c1 = hexToRgb(color1);
     const c2 = hexToRgb(color2);
     const c3 = hexToRgb(color3);
@@ -348,7 +447,11 @@ const MoltenMetal: React.FC<MoltenMetalProps> = ({
     grainIntensity,
     mouseInteraction,
     mouseStrength,
-    opacity
+    opacity,
+    // === RIPPLE ===
+    ripple,
+    rippleSpeed,
+    rippleFrequency
   ]);
 
   return <div ref={containerRef} className={`relative h-full w-full overflow-hidden ${className}`.trim()} />;
